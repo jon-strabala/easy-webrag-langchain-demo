@@ -53,7 +53,7 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
 
 - Set the executable mod for the following:
 
-  `chmod +x check_couchbase.sh  check_openai.py  setup.sh
+  `chmod +x check_couchbase.sh  check_openai.py  setup.sh`
 
 - Verify connectivity and authentication to your Couchbase server
 
