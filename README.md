@@ -16,15 +16,15 @@ For each question, you will get two answers:
 - one using RAG (Couchbase logo)
 - one using pure LLM - OpenAI (🤖).
 
-For RAG, we are using Langchain, Couchbase Vector Search & OpenAI. We fetch parts of the PDF relevant to the question using Vector search & add it as the context to the LLM. The LLM is instructed to answer based on the context from the Vector Store.
+For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch parts of the PDF relevant to the question using Vector search & add it as the context to the LLM. The LLM is instructed to answer based on the context from the Vector Store.
 
-### How to Run
+### How to Configure
 
 - Install dependencies
 
   `pip install -r requirements.txt`
 
-- Copy the template envirnment template
+- Copy the template environment template
 
   `cp _setup.tmpl _setup`
 
@@ -55,11 +55,11 @@ For RAG, we are using Langchain, Couchbase Vector Search & OpenAI. We fetch part
 
   `chmod +x check_couchbase.sh  check_openai.py  setup.sh
 
-- Verify conectivity and authentication to your Couchbase server
+- Verify connectivity and authentication to your Couchbase server
 
   `./check_couchbase.sh`
 
-- Verify conectivity and authentication to OpenAI
+- Verify connectivity and authentication to OpenAI
 
   `./check_openai.py`
 
@@ -67,27 +67,26 @@ For RAG, we are using Langchain, Couchbase Vector Search & OpenAI. We fetch part
 
   `./setup.sh`
 
-- Run the application this will start a webserver
+### Run the application this will start a webserver
 
   `streamlit run chat_with_pdf.py`
 
-- To login 
+Now open the URL displayed in a web browser
 
-Enter your WEB_LOGIN_PASSWORD and hit the "Submit" button.
+- Login by supplying the WEB_LOGIN_PASSWORD and hit the "Submit" button.
 
-- Load your PDF(s) int Couchbase
+Load your PDF(s) into the Couchbase Vector Store. 
 
-Hit the "Browse Files" button and upload one or more PDFs that you whish to form your corpus of knowlege.
+- Hit the "Browse Files" button and upload one or more PDFs that you wish to form your corpus of knowledge.
+  
+- For each PDF file you will also have to hit the "Upload & Vectorize" button. Upon completion the number of documents split up from the PDF will be listed below the "Upload & Vectorize" button.
 
-For each PDF file you will also have to hit the "Upload & Vectorize" button.
-Upon completion the number of documents split up from the PDF will be listed below the "Upload & Vectorize" button.
+Interact with your PDF. 
 
-- Interact with your PDF
+- In the bottom of the web page where it says "Ask a question based on the PDF(s)" start asking questions.
 
-In the bottom of the web page where it says "Ask a question based on the PDF(s)" ask questions and interact with your PDF(s) and an LLM.
-
-- Other
+### Other
 
 To remove your corpus (documents based on your PDF(s) you can kill your streamlit web app via ctrl-C, then  
-can run `./setup.sh` again to get an option to flush all the data in your bucket.
+can run `./setup.sh` again if the bucket already exists you will get an option to flush all the data in your bucket.
 
