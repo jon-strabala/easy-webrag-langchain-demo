@@ -218,7 +218,7 @@ if __name__ == "__main__":
             # View Code
             if st.checkbox("View Code"):
                 st.write(
-                    "View the code here: [Github](https://github.com/couchbase-examples/rag-demo/blob/main/chat_with_pdf.py)"
+                    "View the code here: [Github](https://github.com/jon-strabala/easy-webrag-langchain-demo/blob/main/chat_with_pdf.py)"
                 )
 
         if "messages" not in st.session_state:
