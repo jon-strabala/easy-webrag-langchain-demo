@@ -10,7 +10,7 @@ and an OpenAI API bearer key for this Linux demo
 You probably want to create and activate a virtual environment using the standard library’s virtual environment tool venv and install packages.
 
 - https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
-- 
+  
 ### How does it work?
 
 You can upload your PDFs with custom data & ask questions about the data in the chat box.
