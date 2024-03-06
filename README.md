@@ -4,7 +4,7 @@ This is a demo app built to chat with your custom PDFs using the vector search c
 
 ### Prerequisites 
 
-You will need admin privileges for your onprem Couchbase server 
+You will need admin privileges for your onprem Couchbase server 7.6+
 and an OpenAI API bearer key for this Linux demo
 
 You probably want to create and activate a virtual environment using the standard library’s virtual environment tool venv and install packages.
