@@ -35,7 +35,8 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
 
 - Required environment variables that you must configure in _setup
   ```
-  export CB_HOSTNAME="<the hostname or IP address of your Couchbase server>" 
+  export CB_HOSTNAME="<the hostname or IP address of your Couchbase server>"
+  export CB_FTSHOSTNAME="<the hostname or IP address of a node running Search in your Couchbase cluster>"
   export CB_USERNAME="<username_for_couchbase_cluster>" 
   export CB_PASSWORD="<password_for_couchbase_cluster>"
   export OPENAI_API_KEY="<open_ai_api_key>"
@@ -49,7 +50,6 @@ The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for
 - Optional environment variables that you may alter in _setup
 
   ```
-  export CB_HOME="<the home directory of Couchbase>"
   export CB_BUCKET=vectordemos
   export CB_SCOPE=langchain
   export CB_COLLECTION=webrag
