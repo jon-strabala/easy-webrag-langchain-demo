@@ -72,7 +72,7 @@ def connect_to_couchbase(connection_string, db_username, db_password):
 
     auth = PasswordAuthenticator(db_username, db_password)
     options = ClusterOptions(auth)
-    connect_string = connection_string
+    connect_string = "couchbases://"+connection_string+"/?ssl=no_verify"
     cluster = Cluster(connect_string, options)
 
     # Wait until the cluster is ready for use.

@@ -2,10 +2,11 @@
 
 This is a demo app built to chat with your custom PDFs using the vector search capabilities of Couchbase to augment the OpenAI results in a Retrieval-Augmented-Generation (RAG) model.
 
+The demo will run for both self-managed OnPrem 7.6+ Couchbase deployments and also clould based 7.6+ Capella deployments
+
 ### Prerequisites 
 
-You will need admin privileges for your onprem Couchbase server 7.6+
-and an OpenAI API bearer key for this Linux demo
+You will need a database user with login credentials to your Couchbase cluster and an OpenAI API bearer key for this Linux demo
 
 You probably want to create and activate a virtual environment using the standard library’s virtual environment tool venv and install packages.
 
@@ -41,6 +42,10 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
   export WEB_LOGIN_PASSWORD="<password to access the streamlit app or ChatBot>"
   ```
 
+- Note CB_HOSTNAME may not be the same as CB_FTSHOSTNAME.
+The evar CB_HOSTNAME is typically an IP in your cluster (or the Capella CONNECT hostname) for the Python SDK to connect to couchbases://${CB_HOSTNAME}.
+The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for a curl like connection to https://${CB_FTSHOSTNAME}:18094 used for index creation.
+
 - Optional environment variables that you may alter in _setup
 
   ```
@@ -55,9 +60,9 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
 
   `. _setup`
 
-- Set the executable mod for the following:
+- If needed set the executable bit via chmod for the following:
 
-  `chmod +x check_couchbase.sh  check_openai.py  setup.sh`
+  `chmod +x check_couchbase.sh  check_openai.py  setup.py`
 
 - Verify connectivity and authentication to your Couchbase server
 
@@ -69,7 +74,7 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
 
 - Setup the Couchbase infrastructure (bucket, scope, collection and a search vector index) via the bash script
 
-  `./setup.sh`
+  `./setup.py`
 
 ### Run the application this will start a webserver
 
@@ -92,5 +97,6 @@ Interact with your PDF.
 ### Other
 
 To remove your corpus (documents based on your PDF(s) you can kill your streamlit web app via ctrl-C, then  
-can run `./setup.sh` again if the bucket already exists you will get an option to flush all the data in your bucket.
+can run `./setup.py` again if the bucket already exists you will get an option to reset your collection (drop/create) and readd your search index.
+
 

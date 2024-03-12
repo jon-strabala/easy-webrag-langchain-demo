@@ -3,7 +3,7 @@
 PATH=${CB_HOME}:$PATH
 
 # Check if all required environment variables are set
-required_vars=("CB_HOME" "CB_HOSTNAME" "CB_USERNAME" "CB_PASSWORD" )
+required_vars=( "CB_HOSTNAME" "CB_USERNAME" "CB_PASSWORD" )
 
 echo "Verifying database conectivity via evars ${required_vars[@]}"
 
@@ -18,7 +18,8 @@ if [ "$doexit" = "1" ]; then
     exit 1
 fi
 
-${CB_HOME}/bin/couchbase-cli host-list --no-ssl-verify -c couchbases://${CB_HOSTNAME} -u ${CB_USERNAME} -p ${CB_PASSWORD}
+
+curl -s -k -u ${CB_USERNAME}:${CB_PASSWORD} https://${CB_HOSTNAME}:18093/admin/ping | grep '"OK"'
 exit_code=$?
 if [ $exit_code = "0" ] ; then
     echo "Access suceeded, the Couchbase Server is up and running"

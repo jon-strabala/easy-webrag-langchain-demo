@@ -1,6 +1,6 @@
 {
   "type": "fulltext-index",
-  "name": "vectordemos.langchain.webrag_index",
+  "name": "webrag_index",
   "sourceType": "gocbcore",
   "sourceName": "vectordemos",
   "planParams": {
