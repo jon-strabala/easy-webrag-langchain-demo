@@ -135,6 +135,7 @@ if bucket == None:
                 bucket_type=BucketType.COUCHBASE,
                 conflict_resolution_type=ConflictResolutionType.SEQUENCE_NUMBER))
         time.sleep(1)
+        print(f"Bucket '{bucket_name}' created successfully.")
         bucket = get_bucket(cluster, bucket_name)
     except InternalServerFailureException as e:
         error_message = str(e)
