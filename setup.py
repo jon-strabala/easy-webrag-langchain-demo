@@ -135,6 +135,7 @@ if bucket == None:
                 bucket_type=BucketType.COUCHBASE,
                 conflict_resolution_type=ConflictResolutionType.SEQUENCE_NUMBER))
         time.sleep(1)
+        bucket = get_bucket(cluster, bucket_name)
     except InternalServerFailureException as e:
         error_message = str(e)
         if "Forbidden. User needs the following permissions" in error_message and "cluster.buckets!create" in error_message:
