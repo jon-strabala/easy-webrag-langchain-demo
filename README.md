@@ -11,8 +11,17 @@ You will need a database user with login credentials to your Couchbase cluster a
 You probably want to create and activate a virtual environment using the standard library’s virtual environment tool venv and install packages.
 
 - https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
-  
-### How does it work?
+
+Quick tips on python virtual environments
+
+- Create and activate a virtual environment in the current directory<br><br>
+`python3 -m venv .venv`<br>
+`source .venv/bin/activate`
+
+- Then when all done deactivate it<br><br>
+`deactivate`
+
+### How does this demo work?
 
 You can upload your PDFs with custom data & ask questions about the data in the chat box.
 
