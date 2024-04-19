@@ -4,6 +4,9 @@ This is a demo app built to chat with your custom PDFs using the vector search c
 
 The demo will run for both self-managed OnPrem 7.6+ Couchbase deployments and also clould based 7.6+ Capella deployments
 
+If you don't have the time to run the demo you can just download and watch the 7 minute video: [easy-webrag-langchain-demo_1920x1080.mp4](https://github.com/jon-strabala/easy-webrag-langchain-demo/blob/main/easy-webrag-langchain-demo_1920x1080.mp4) 
+
+
 ### Prerequisites 
 
 You will need a database user with login credentials to your Couchbase cluster and an OpenAI API bearer key for this Linux demo
