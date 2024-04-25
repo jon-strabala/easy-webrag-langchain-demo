@@ -4,7 +4,7 @@
 required_vars=( "CB_HOSTNAME" "CB_USERNAME" "CB_PASSWORD" )
 
 echo ""
-echo "Verifying database conectivity via evars ${required_vars[@]}"
+echo "1) Verifying database connectivity via evars ${required_vars[@]}:"
 
 doexit=0
 for var in "${required_vars[@]}"; do
@@ -20,7 +20,7 @@ fi
 curl -s -k -u ${CB_USERNAME}:${CB_PASSWORD} https://${CB_HOSTNAME}:18093/admin/ping | grep '"OK"'
 exit_code=$?
 if [ $exit_code = "0" ] ; then
-    echo "Access suceeded, the Couchbase Server is up and running"
+    echo "Access succeeded, the Couchbase Server is up and running"
 else
     echo "ERROR: Unable to access Couchbase Server, check your environamt variables and your server instance"
 fi
@@ -32,11 +32,12 @@ versionstr=`curl -s -k -u ${CB_USERNAME}:${CB_PASSWORD} https://${CB_HOSTNAME}:1
 version=$(echo "$versionstr" | grep -oP '(?<="version":")[^"]+')
 
 # Check if version is greater than or equal to 7.6
+echo "2) Checking your cluster version:"
 if [[ "$version" == "7.6" || "$version" > "7.6" ]]; then
-    echo "Your Couchbase Version <$version> is 7.6 or later, GOOD you can run vector search appications"
+    echo "Your Couchbase Version <$version> is 7.6 or later, GOOD you can run vector search applications"
 else
     echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    echo "Your Couchbase Version <$version> is earlier than 7.6, ERROR sorry you can't run vector search appications"
+    echo "Your Couchbase Version <$version> is earlier than 7.6, ERROR sorry you can't run vector search applications"
     echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 fi
 echo ""
