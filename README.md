@@ -6,9 +6,6 @@ The demo will run for both self-managed OnPrem 7.6+ Couchbase deployments and al
 
 If you don't have the time to run the demo you can just download and watch the 7 minute video: [easy-webrag-langchain-demo_1920x1080.mp4](https://github.com/jon-strabala/easy-webrag-langchain-demo/blob/main/easy-webrag-langchain-demo_1920x1080.mp4) 
 
-
-### Prerequisites 
-
 ### Prerequisites 
 
 You will need a database user with login credentials to your Couchbase cluster and an OpenAI API bearer key for this Linux demo
