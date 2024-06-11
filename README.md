@@ -9,20 +9,35 @@ If you don't have the time to run the demo you can just download and watch the 7
 
 ### Prerequisites 
 
+### Prerequisites 
+
 You will need a database user with login credentials to your Couchbase cluster and an OpenAI API bearer key for this Linux demo
 
-You probably want to create and activate a virtual environment using the standard library’s virtual environment tool venv and install packages.
+You will probably want to create and activate a virtual environment using the standard library's virtual environment tool, *venv*, and install local python packages.
 
 - https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 
-Quick tips on python virtual environments
+Quick tips on Python virtual environments (please folow this unless you are an expert). 
 
-- Create and activate a virtual environment in the current directory<br><br>
+- Create and activate a virtual environment in a new empty demo directory<br><br>
+`mkdir MYDEMO`<br>
+`cd MYDEMO`<br>
 `python3 -m venv .venv`<br>
 `source .venv/bin/activate`
 
-- Then when all done deactivate it<br><br>
+- The above works for *bash* or *zsh*, however you would use `. .venv/bin/activate` if you are using *sh*
+
+- Then, when all done with this demo, you can deactivate it.<br><br>
 `deactivate`
+
+- Just in case you typed 'deactive' (you do this deactive when you're done with the full demo) - just run the source command again to reactivate the virtual Python environment:<br><br>
+`source .venv/bin/activate`
+
+- The above works for *bash* or *zsh*, however you would use `. .venv/bin/activate` if you are using *sh*
+
+- Now download this git repo and cd into it.<br><br>
+`git clone https://github.com/jon-strabala/easy-webrag-langchain-demo.git`<br>
+`cd easy-webrag-langchain-demo`
 
 ### How does this demo work?
 
@@ -55,9 +70,9 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
   export WEB_LOGIN_PASSWORD="<password to access the streamlit app or ChatBot>"
   ```
 
-- Note CB_HOSTNAME may not be the same as CB_FTSHOSTNAME.
-The evar CB_HOSTNAME is typically an IP in your cluster (or the Capella CONNECT hostname) for the Python SDK to connect to couchbases://${CB_HOSTNAME}.
-The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for a curl like connection to https://${CB_FTSHOSTNAME}:18094 used for index creation.
+- Note CB_HOSTNAME might be different than CB_FTSHOSTNAME if your services are distributed (these are the same on a single node cluster).
+The evar CB_HOSTNAME is typically an IP in your cluster (or the Capella CONNECT hostname) for the Python SDK to connect to couchbases://${CB_HOSTNAME}. 
+The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for a curl like connection to https://${CB_FTSHOSTNAME}:18094 used for index creation. 
 
 - Optional environment variables that you may alter in _setup
 
@@ -70,7 +85,9 @@ The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for
 
 - Source the _setup file (we assume a bash shell)
 
-  `. _setup`
+  `source _setup`
+
+- The above works for *bash* or *zsh*, however you would use `. _setup` if you are using *sh*
 
 - If needed set the executable bit via chmod for the following:
 
