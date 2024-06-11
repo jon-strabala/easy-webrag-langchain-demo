@@ -68,8 +68,9 @@ For RAG, we are using LangChain, Couchbase Vector Search & OpenAI. We fetch part
   ```
 
 - Note CB_HOSTNAME might be different than CB_FTSHOSTNAME if your services are distributed (these are the same on a single node cluster).
-The evar CB_HOSTNAME is typically an IP in your cluster (or the Capella CONNECT hostname) for the Python SDK to connect to couchbases://${CB_HOSTNAME}. 
-The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for a curl like connection to https://${CB_FTSHOSTNAME}:18094 used for index creation. 
+  - The evar CB_HOSTNAME is typically an IP in your cluster (or the Capella CONNECT hostname) running the data service (or KV) for the Python SDK to connect to couchbases://${CB_HOSTNAME}. 
+  - The evar CB_FTSHOSTNAME is set to a node running the search service (or fts) for a curl like connection to https://${CB_FTSHOSTNAME}:18094 used for index creation.
+  - This example always uses and assumes secure connections to your couchbase instance, you should verify your firewall will pass at least 18091 (Management port), 18094 (Search service), 11210 / 11207 (Data service)
 
 - Optional environment variables that you may alter in _setup
 
