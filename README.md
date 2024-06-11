@@ -126,4 +126,7 @@ Interact with your PDF.
 To remove your corpus (documents based on your PDF(s) you can kill your streamlit web app via ctrl-C, then  
 can run `./setup.py` again if the bucket already exists you will get an option to reset your collection (drop/create) and readd your search index.
 
+### Finished
 
+When you are all done with this demo, you should deactivate the python virtual environment (you can always reactivate it later).<br><br>
+`deactivate`
