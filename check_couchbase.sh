@@ -51,7 +51,7 @@ echo ""
 versionstr=`curl -s -k -u ${CB_USERNAME}:${CB_PASSWORD} https://${CB_HOSTNAME}:18091/pools/default | grep -o '"version":"[^"]*' | head -1`
 
 # Extract version string from JSON
-version=$(echo "$versionstr" | grep -oP '(?<="version":")[^"]+')
+version=$(echo "$versionstr" | sed -n 's/.*"version":"\([0-9]\+\.[0-9]\).*/\1/p')
 
 # Check if version is greater than or equal to 7.6
 echo "3) Checking your cluster version:"
