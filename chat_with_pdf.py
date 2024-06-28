@@ -1,5 +1,5 @@
 import tempfile
-from langchain_community.vectorstores import CouchbaseVectorStore
+from langchain_couchbase import CouchbaseVectorStore
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -282,7 +282,9 @@ if __name__ == "__main__":
             )
 
             # Capture context and question for display
-            rag_context = {"context": retriever.get_relevant_documents(question), "question": question}
+            relevant_docs = retriever.invoke(question)
+            context = "\n".join([doc.page_content for doc in relevant_docs])
+            rag_context = {"context": context, "question": question}
 
             # Save context in session state
             st.session_state.rag_context = str(rag_context)
